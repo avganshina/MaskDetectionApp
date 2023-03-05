@@ -47,4 +47,6 @@ if img_file_buffer is not None:
         st.write('Thank you for testing my service!')
         st.image(im_pil)
 
+        st.write('Want to see more? Check out my [portfolio](https://avganshina.github.io/anastasiaganshina/peronalprojects.html)!')
+
 
