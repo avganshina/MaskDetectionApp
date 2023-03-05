@@ -1,8 +1,9 @@
+# use this code for flask app
+
 from flask import Flask,render_template,Response
 import cv2
 from tensorflow.keras.models import load_model
 import numpy as np
-from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
 
 app=Flask(__name__)
 
@@ -14,8 +15,7 @@ labels_dict={0:'mask', 1:'without mask'}
 color_dict={0:(0, 255, 0),1:(0,0,255)}
 
 size = 4
-
-webcam = webrtc_streamer(key="example") #cv2.VideoCapture(0)
+webcam = cv2.VideoCapture(0)
 
 
 def generate_frames():
@@ -69,4 +69,4 @@ def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
